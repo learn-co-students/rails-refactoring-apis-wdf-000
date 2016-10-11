@@ -4,6 +4,7 @@ class GithubService
 
   def initialize(access_hash = nil)
     @access_token = access_hash["access_token"] if access_hash
+    # binding.pry
   end
 
   def authenticate!(client_id, client_secret, code)
@@ -27,6 +28,7 @@ class GithubService
   end
 
   def create_repo(name)
+    # binding.pry
     Faraday.post "https://api.github.com/user/repos", {name: name}.to_json, {'Authorization' => "token #{self.access_token}", 'Accept' => 'application/json'}
   end
 
