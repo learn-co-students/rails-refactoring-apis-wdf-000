@@ -24,7 +24,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use Pry for testing
-gem 'pry'
+gem 'pry-rails'
 # Use Faraday for GET and POST
 gem 'faraday'
 # Dot-env
@@ -57,4 +57,3 @@ group :development, :test do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
-
