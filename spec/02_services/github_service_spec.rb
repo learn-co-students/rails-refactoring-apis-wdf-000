@@ -20,6 +20,7 @@ describe 'GithubService' do
     end
 
     it "sends the correct POST request" do
+      # binding.pry
       expect(WebMock).to have_requested(:post, "https://github.com/login/oauth/access_token").
         with(:body => {"client_id"=> ENV["GITHUB_CLIENT"], "client_secret"=> ENV["GITHUB_SECRET"], "code"=>"20"},
         :headers => {'Accept'=>'application/json'})
@@ -67,7 +68,7 @@ describe 'GithubService' do
   describe '#create_repo' do
     it "sends the correct POST request" do
       stubbed = stub_request(:post, "https://api.github.com/user/repos").
-        with(body: {"{\"name\":\"a-new-repo\"}"=>nil}, headers: {'Authorization'=>'token 1'})
+        with(body: {"{\"name\":\"a-new-repo\"}"=>true}, headers: {'Authorization'=>'token 1'})
 
       service = GithubService.new({"access_token" => "1"})
       service.create_repo("a-new-repo")
