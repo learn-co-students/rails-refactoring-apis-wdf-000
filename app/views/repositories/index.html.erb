@@ -1,7 +1,13 @@
 <div class = "container">
   <h1><%= session[:username] %>'s Repos</h1>
-  <% @repos_array.each do |repo| %>
-    <%= repo["name"] %><br>
+
+  <!-- <%= debug session %> -->
+
+
+  <% if @repos_array %>
+    <% @repos_array.each do |repo| %>
+      <%= repo.name %><br>
+    <% end %>
   <% end %>
 
   <%= form_tag("/repositories/create", method: "post") do %>
@@ -10,3 +16,6 @@
     <%= submit_tag("Create") %>
   <% end %>
 </div>
+
+
+<%= link_to "log out", logout_path, method: :delete %>
