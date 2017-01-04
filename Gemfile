@@ -29,6 +29,8 @@ gem 'pry'
 gem 'faraday'
 # Dot-env
 gem 'dotenv-rails'
+gem 'figaro'
+gem 'pusher'
 
 #Testing
 group :test do
